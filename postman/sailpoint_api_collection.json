@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Sailpoint User Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/health"
+      }
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/users",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "salary_id": "EMP004",
+                "firstname": "Alex",
+                "lastname": "Wilson",
+                "username": "alex.wilson",
+                "fullname": "Alex Wilson",
+                "group": "{{group_id}}",
+                "active": true
+              }
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/users"
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "url": "http://localhost:3000/api/users/USER000001",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "firstname": "Alexander",
+                "lastname": "Wilson",
+                "username": "alex.wilson",
+                "fullname": "Alexander Wilson",
+                "salary_id": "EMP004",
+                "group": "GRP000001",
+                "active": true
+              }
+            },
+            "description": "You can include any of these fields. Only included fields will be updated. The group field expects a groupId value."
+          }
+        },
+        {
+          "name": "Get User by UserId",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/users/USER000001"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Groups",
+      "item": [
+        {
+          "name": "Create Group",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:3000/api/groups",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "name": "Finance"
+              }
+            }
+          }
+        },
+        {
+          "name": "Get All Groups",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:3000/api/groups"
+          }
+        }
+      ]
+    }
+  ]
+}
