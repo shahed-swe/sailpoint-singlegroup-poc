@@ -52,6 +52,21 @@ app.get('/health', (req, res) => {
     });
 });
 
+// Root route
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Sailpoint User Management API',
+        version: '1.0.0',
+        description: 'API for managing users and their entitlements',
+        endpoints: {
+            health: '/health',
+            users: '/api/users',
+            groups: '/api/groups'
+        },
+        documentation: '/api-docs' // For future Swagger/OpenAPI documentation
+    });
+});
+
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/groups', require('./routes/groupRoutes'));
